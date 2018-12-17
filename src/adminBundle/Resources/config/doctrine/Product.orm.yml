@@ -1,4 +1,4 @@
-adminBundle\Entity\Products:
+adminBundle\Entity\Product:
     type: entity
     table: products
     indexes:

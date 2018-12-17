@@ -1,4 +1,4 @@
-adminBundle\Entity\Categories:
+adminBundle\Entity\Category:
     type: entity
     table: categories
     id:
