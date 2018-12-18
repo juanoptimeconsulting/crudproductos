@@ -10,15 +10,30 @@ class DefaultController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $product_repo = $em->getRepository("adminBundle:Product");
-        $products = $product_repo->findAll();
+        $category_repo = $em->getRepository("adminBundle:Category");
+        $products = $category_repo->findAll();
         foreach ($products as $run){
+
             echo  $run->getName()."</br>";
-            echo  $run->getCategory()->getName()."</br>";
+
+
+            $productos  = $run->getProducts();
+
+            foreach ($productos as $getpr){
+
+                echo  $getpr->getName()."</br>";
+            }
         }
 
         die();
 
         return $this->render('adminBundle:Default:index.html.twig');
+    }
+
+
+    public  function inicioAction(){
+
+        return $this->render('adminBundle:Default:index.html.twig');
+
     }
 }
