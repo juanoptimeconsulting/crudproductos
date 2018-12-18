@@ -1,4 +1,80 @@
-{% extends "adminBundle::index.html.twig"%}
-{% block content %}
-    holi
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Crud de productos {% endblock %}</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CRUD PORDUCTOS PHP</a>
+        <li><a hrf="#">
+
+            </a>
+        </li>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+                {% block menu %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                {% endblock %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+
+
+                        {% if app.user == null %}
+                            <a class="dropdown-item" href="#">Entrar</a>
+
+                        {%else%}
+                            <a class="dropdown-item" href="#">Salir</a>
+                            {% if app.user.role == "ROLE_ADMIN" %}
+                                <a class="dropdown-item" href="#">Lista de Productos</a>
+                                <a class="dropdown-item" href="#">Crear Productos</a>
+                            {%endif%}
+                        {% endif %}
+
+                        <a class="dropdown-item" href="#">Ayuda</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+</header>
+<section id="content">
+
+    {% block content %} content <default></default> {% endblock %}
+</section>
+
+<footer>
+    crud de productos en symfony 3.0.0 - juan pablo diaz &copy;
+</footer>
+
+
+
+</body>
+</html>
