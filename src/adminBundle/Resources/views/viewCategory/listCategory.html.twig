@@ -2,12 +2,18 @@
 
 
 {% block content %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+
     <h1>Lista de Categorias</h1>
     <div class="col-lg-6">
 
 
 
-
+        <div id="dialogoFormulario" title="Atención" style="display:none;">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;">
+	</span>¿Realmente desea enviar el contenido de este formulario?</p>
+        </div>
 
 
         <table class="table">
@@ -22,24 +28,48 @@
                 <td>Nombre</td>
                 <td>Descripcion</td>
                 <td>Estado</td>
-                <td>Editar</td>
-                <td>Eliminar</td>
+
+
+
 
             </tr>
             {% for categories in category %}{#variable  category enviada desde el controlador#}
                 <tr>
-                    <th scope="row">2</th>
+                    <th scope="row">3</th>
                     <td>{{ categories.code}}</td>
                     <td>{{ categories.name}}</td>
                     <td>{{ categories.description}}</td>
-                    <td><a href="#" class="btn btn-info">Editar</a></td>
-                    {% if categories.products|length == 0%}{#condicional para saber si una etiqueta esta siendo utilizada por una entrada#}
-                        <td><a href="{{ path ("listcategory") }}" class="btn btn-danger">Eliminar</a></td>
+
+
+                    {%   if categories.active == 1 %}
+
+                        <td><a href= "{{ path("estadocategory", { "id":categories.id })}}" class="btn btn-info">Activar</a></td>
+
+                    {%   else %}
+
+                        <td><a href= "{{ path("estadocategorys", { "id":categories.id })}}" class="btn btn-danger">Desactivar</a></td>
+                    {% endif %}
+
+                    <td><a href="{{path("redirecioneditcategory",{"id":categories.id})}}" class="btn btn-info">Editar</a></td>
+
+                    {% if categories.products|length == 0 %}{#condicional para saber si una etiqueta esta siendo utilizada por una entrada#}
+
+
+
+                        <td><a  id="button-a" href="{{ path ("deletecategory",{"id":categories.id}) }}" class="btn btn-danger">Eliminar</a></td>
+
+
 
                     {% else %}
 
-                        <td><a class="btn btn-warning" href="#" >Categoria en Uso</a></td>
+
+                        <td><a class="btn btn-warning" href="#" >Categoria en uso</a></td>
+
                     {% endif %}
+
+
+
+
                 </tr>
             {%endfor%}
             </tbody>
@@ -74,7 +104,33 @@
             {%endfor%}
         {%endif%}
     </div>
+    <script>
+        $('#button-a').click(function(){
 
+            swal({
+                title: "estas seguro?",
+                text: "Una vez eliminado no podra recuperar esta categoria!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        swal("Ah sido eliminado correctamente!", {
+                            icon: "success",
+
+                        });
+                    } else {
+
+                        swal("Gracias");
+                    }
+                });
+
+        });
+
+
+    </script>
     <div class="clearfix"></div>
 {% endblock content %}
 

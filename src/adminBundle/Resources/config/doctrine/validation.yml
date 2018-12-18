@@ -1,0 +1,7 @@
+adminBundle\Entity\Category:
+  properties:
+    name:
+    - NotBlank: { message: "el nombre no puede estar vacio"}
+    - length:
+        min: 2
+        minMessage: "el nombre tiene que tener mas de dos caracteres"
