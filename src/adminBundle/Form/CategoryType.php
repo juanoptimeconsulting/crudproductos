@@ -26,8 +26,8 @@ class CategoryType extends AbstractType
             ->add('description', TextareaType::class, array("label"=>"Descripcion","required" => "required", "attr" => array(
                 "class" => "form-name form-control")))
             ->add('active',  ChoiceType::class, array("label" => "Estado", "required" => "required", "choices" => array(
-                "Activo" => "1",
-                "Desactivado" => "2"
+                "Activo" => "0",
+                "Desactivado" => "1"
             ), "attr" => array(
                 "class" => "form-name form-control")
             ))

@@ -72,12 +72,12 @@ class CategoryController extends Controller {
 
 
             $em = $this->getDoctrine()->getEntityManager();
-            $category_repo = $em->getRepository("blogBundle:Category");
+            $category_repo = $em->getRepository("adminBundle:Category");
             $categories = $category_repo->find($id);
 
 
             //verificar si esta siendo utlizada la etiqueta para poder elimianarla
-            if (count($categories->getEntries()) == 0) {
+            if (count($categories->getProducts()) == 0) {
                 $em->remove($categories);
                 $em->flush();
             }
@@ -87,5 +87,76 @@ class CategoryController extends Controller {
         //var_dump(count($tags->getEntryTag()));
         return $this->redirectToRoute("listcategory");
     }
+
+
+
+    public function editcategoryAction(Request $request, $id)
+    {
+        //se setean los datos para que sean enviados al formulario
+
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $category_repo = $em->getRepository("adminBundle:Category");
+        $categories_edit = $category_repo->find($id);
+
+
+        $form = $this->createForm(CategoryType::class, $categories_edit); //llenar los datos al forumlario
+        //var_dump(count($tags->getEntryTag()));
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+
+            if ($form->isValid()) {//Aqui se lleva la validacion desde validation.yml,
+
+
+                $categories_edit->setCode($form->get("code")->getData());
+                $categories_edit->setName($form->get("name")->getData());
+                $categories_edit->setDescription($form->get("description")->getData());
+                $categories_edit->setActive($form->get("active")->getData());
+
+                $em->persist($categories_edit);
+                $flush = $em->flush();
+
+                if ($flush == null) {
+                    $estado = "la categoria se ha editado correctamente";
+                } else {
+                    $estado = "error a la editar la Categoria";
+                }
+            } else {
+                $estado = "Error de Formulario";
+            }
+            $this->session->getFlashBag()->add("estado", $estado);//para los mensajes de confirmacion
+            return $this->redirectToRoute("listcategory"); //redirigirnos a las lita
+        }
+
+        return $this->render("adminBundle:viewCategory:editCategory.html.twig", array(
+            'form'=> $form->createView()
+        ));
+    }
+
+
+public function editestadoAction($id, $active)
+{
+
+
+    $em = $this->getDoctrine()->getManager();
+    $cursos_repo = $em->getRepository("adminBundle:Category");
+    $curso = $cursos_repo->find($id);
+
+    $curso->setActive($active);
+
+
+    $em->persist($curso); //guarda los datos dentro de cotrine
+    $flush = $em->flush(); //volcar los datos a la BD
+
+    if ($flush != null) {
+        echo "ERROR ";
+    } else {
+        echo "SE EDITO CON EXITO";
+
+    }
+    return $this->redirectToRoute("listcategory");
+
+}
 
 }

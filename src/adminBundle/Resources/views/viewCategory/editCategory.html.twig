@@ -1,0 +1,53 @@
+{% extends "adminBundle::inicio.html.twig"%}
+
+{% block content %}
+
+    <!DOCTYPE html>
+
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edicion de categorias</title>
+
+    </head>
+    <body>
+    <h1>Editar categorias</h1>
+    {{ form_errors(form)}}
+    {% if app.session.flashbag().get('estado') is defined %}{#verfica si esta definida la varibal estado si se envia algo desde el control#}
+
+
+        {% for message in app.session.flashbag().get('estado')%}
+
+
+            {% if message ==  "la categoria se ha editado correctamente"%}
+
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+
+
+            {%endif%}
+
+            {% if message ==  "formulario no valido" %}
+
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {%endif%}
+
+
+
+        {%endfor%}
+    {%endif%}
+    {#llamada del formulario #}
+    <div class="col-lg-6">
+        {{form_start(form)}}
+
+
+        {{form_end(form)}}
+
+    </div>
+    <div class="clearfix"></div>
+    </body>
+    </html>
+{%endblock%}
