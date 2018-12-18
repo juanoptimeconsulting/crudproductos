@@ -1,0 +1,81 @@
+{% extends "adminBundle::inicio.html.twig"%}
+
+
+{% block content %}
+    <h1>Lista de Categorias</h1>
+    <div class="col-lg-6">
+
+
+
+
+
+
+        <table class="table">
+
+
+
+
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Codigo</td>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td>Estado</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+
+            </tr>
+            {% for categories in category %}{#variable  category enviada desde el controlador#}
+                <tr>
+                    <th scope="row">2</th>
+                    <td>{{ categories.code}}</td>
+                    <td>{{ categories.name}}</td>
+                    <td>{{ categories.description}}</td>
+                    <td><a href="#" class="btn btn-info">Editar</a></td>
+                    {% if categories.products|length == 0%}{#condicional para saber si una etiqueta esta siendo utilizada por una entrada#}
+                        <td><a href="{{ path ("listcategory") }}" class="btn btn-danger">Eliminar</a></td>
+
+                    {% else %}
+
+                        <td><a class="btn btn-warning" href="#" >Categoria en Uso</a></td>
+                    {% endif %}
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{{ path ("addcategory")}}" role="button">Agregar</a>
+        {% if app.session.flashbag().get('estado') is defined %}{#verfica si esta definida la varibal estado si se envia algo desde el control#}
+
+
+            {% for message in app.session.flashbag().get('estado')%}
+
+
+                {% if message ==  "la categoria se ha creado correctamente"%}
+
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                    </div>
+                {%elseif message ==  "la categoria se ha editado correctamente"%}
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                    </div>
+                {%endif%}
+
+                {% if message ==  "formulario no valido" %}
+
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {%endif%}
+
+
+
+            {%endfor%}
+        {%endif%}
+    </div>
+
+    <div class="clearfix"></div>
+{% endblock content %}
+
+

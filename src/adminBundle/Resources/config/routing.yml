@@ -1,3 +1,15 @@
 admin_homepage:
     path:     /listar
     defaults: { _controller: adminBundle:Default:inicio}
+
+addcategory:
+    path:     categories/add
+    defaults: { _controller: adminBundle:Category:addCategory}
+
+listcategory:
+        path:     categories/list
+        defaults: { _controller: adminBundle:Category:listacategoria}
+
+list:
+            path:     categories/list
+            defaults: { _controller: adminBundle:Category:listacategoria}
