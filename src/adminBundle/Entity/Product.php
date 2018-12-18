@@ -38,7 +38,7 @@ class Product
     private $price;
 
     /**
-     * @var \adminBundle\Entity\Categories
+     * @var \adminBundle\Entity\Category
      */
     private $category;
 
@@ -176,11 +176,11 @@ class Product
     /**
      * Set category
      *
-     * @param \adminBundle\Entity\Categories $category
+     * @param \adminBundle\Entity\Category $category
      *
      * @return Product
      */
-    public function setCategory(\adminBundle\Entity\Categories $category = null)
+    public function setCategory(\adminBundle\Entity\Category $category = null)
     {
         $this->category = $category;
 
@@ -190,7 +190,7 @@ class Product
     /**
      * Get category
      *
-     * @return \adminBundle\Entity\Categories
+     * @return \adminBundle\Entity\Category
      */
     public function getCategory()
     {

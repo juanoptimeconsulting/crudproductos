@@ -46,7 +46,7 @@ adminBundle\Entity\Product:
             scale: 0
     manyToOne:
         category:
-            targetEntity: Categories
+            targetEntity: Category
             cascade: {  }
             fetch: LAZY
             mappedBy: null

@@ -32,4 +32,5 @@ adminBundle\Entity\Category:
         active:
             type: boolean
             nullable: true
+
     lifecycleCallbacks: {  }
