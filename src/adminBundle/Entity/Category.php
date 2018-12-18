@@ -2,6 +2,8 @@
 
 namespace adminBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Category
  */
@@ -32,6 +34,15 @@ class Category
      */
     private $active;
 
+
+
+    protected $product;
+
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -137,6 +148,10 @@ class Category
     public function getActive()
     {
         return $this->active;
+    }
+
+    public function getProducts(){
+        return $this->product;
     }
 }
 

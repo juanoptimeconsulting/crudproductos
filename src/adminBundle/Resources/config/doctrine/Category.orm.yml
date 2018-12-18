@@ -32,5 +32,9 @@ adminBundle\Entity\Category:
         active:
             type: boolean
             nullable: true
-
+    oneToMany:
+        product:
+            targetEntity: Product
+            mappedBy: category
+            cascade: ["persist"]
     lifecycleCallbacks: {  }
