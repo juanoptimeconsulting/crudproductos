@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <h2>LISTA DE PRODUCTOS ACTIVADOS </h2>
+
     {% if app.session.flashbag().get('estado') is defined %}
 
 
@@ -44,6 +44,7 @@
 
 
             {% if productsllegada.category.active == 0 %}
+                <h2>Producto Activado</h2>
                 <div class="col-lg-11" >
                 <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
                 <p> Categoria: {{productsllegada.category.name}}</p>
@@ -62,6 +63,28 @@
 
                 </div>
                 <div class="clearfix"></div>
+
+
+                {% else %}
+                    <h2>Producto Desactivado</h2>
+                    <div class="col-lg-11" >
+                        <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+                        <p> Categoria: {{productsllegada.category.name}}</p>
+
+                        <p>
+                            <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+                        </p>
+
+                        <p>
+                            <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
+                        </p>
+
+
+                        <div class="clearfix"></div>
+                        <hr>
+
+                    </div>
+                    <div class="clearfix"></div>
 
             {% endif%}
 
@@ -94,7 +117,7 @@
 
                 {% set pagesumar  = page+1 %}
             {% endif %}
-            <li class="page-item"><a class="page-link" href="{{  path('listaproducts', {'page': pagesumar}) }}">&raquo;</a></li>
+            <li class="page-item"><a class="page-link" href="{{  path('listaproducts', {'page': pagesumar }) }}">&raquo;</a></li>
 
 
 
