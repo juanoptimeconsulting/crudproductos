@@ -1,0 +1,61 @@
+{# empty Twig template #}
+{% extends "adminBundle::inicio.html.twig"%}
+
+
+{% block content %}
+    {% if app.session.flashbag().get('estado') is defined %}
+
+
+        {% for message in app.session.flashbag().get('estado')%}
+
+
+            {% if message ==  "el Producto se ha creado correctamente"%}
+
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+
+
+            {% elseif message == "el Producto se ha editado correctamente" %}
+
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+
+            {%endif%}
+
+
+
+
+
+        {%endfor%}
+    {%endif%}
+
+
+
+
+    {% for productsllegada in products %}
+        <div class="col-lg-11" >
+
+            <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+             <p> Categoria:{{productsllegada.category.name}}</p>
+
+            {%if (app.user.id is defined) and  entry.user.id == app.user.id%}{#para verificar si el usuario esta logeado#}
+                <p>
+                    <a href="#" class="btn btn-danger">Eliminar</a>
+                </p>
+
+                <p>
+                    <a href="#" class="btn btn-success">Editar</a>
+                </p>
+            {%endif%}
+
+            <div class="clearfix"></div>
+            <hr>
+
+        </div>
+        <div class="clearfix"></div>
+    {%endfor%}
+   
+
+{%endblock%}

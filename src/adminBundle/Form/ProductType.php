@@ -36,6 +36,9 @@ class ProductType extends AbstractType
                 "label" => "Categoria", "required" => "required",
                 "attr" => array(
                     "class" => "form-name form-control")))
+
+            ->add('guardar', SubmitType::class, array(
+                'attr' => array('class' => 'form-submit btn btn-primary ')))
         ;
     }
     

@@ -16,7 +16,7 @@ class ProductController extends Controller {
         $this->session = new Session();
     }
 
-    public function agregarentradasAction(Request $request) {
+    public function addProductAction(Request $request) {
 
         $entry = new Product();
         $form = $this->createForm(ProductType::class, $entry); //llamar a la vista
@@ -28,49 +28,34 @@ class ProductController extends Controller {
                 $em = $this->getDoctrine()->getEntityManager();
 
                 $entry = new Product();
-                $entry->setTitle($form->get("title")->getData()); //seteo de los datos de FRM
-                $entry->setContent($form->get("content")->getData());
-                $entry->setStatus($form->get("status")->getData());
+                $entry->setCode($form->get("code")->getData()); //seteo de los datos de FRM
+                $entry->setName($form->get("name")->getData());
+                $entry->setDescription($form->get("description")->getData());
+                $entry->setBrand($form->get("brand")->getData());
+                $entry->setPrice($form->get("price")->getData());
 
-                //mandar la imagen a la BD
-                $file = $form['image']->getData();
-                $extension = $file->guessExtension(); //sacar la extension
-                $file_name = time() . "." . $extension; //time para sacar un unico digito
-                $file->move("uploads", $file_name); // moverlo a un directorio
-                //en la bD poner el mismo nombre
-
-                $entry->setImage($file_name);
 
 
                 //para el combo box
-                $categori_repo = $em->getRepository("blogBundle:Category");
+                $categori_repo = $em->getRepository("adminBundle:Category");
 
                 $category = $categori_repo->find($form->get("category")->getData());
 
                 $entry->setCategory($category); //pasamos un objeto
-                //sacar el usuario que hay logeado
-                $user = $this->getUser();
-                $entry->setUser($user);
 
-                //otra manera de instanciar un objeto?
-                $entry_repo = $em->getRepository("blogBundle:Entry");
 
                 $em->persist($entry);
                 $flush = $em->flush();
 
 
-                $entry_repo->saveEntryTags(
-                    $form->get("Tags")->getData(), $form->get("title")->getData(), $category, $user
-                );
-
 
                 if ($flush == null) {
-                    $estado = "la Entrada se ha creado correctamente";
+                    $estado = "el Producto se ha creado correctamente";
                 } else {
-                    $estado = "error a la añdir la Entrada";
+                    $estado = "error a la añadir el Producto";
                 }
             } else {
-                $estado = "Eror de Formlario";
+                $estado = "Eror de Formulario";
             }
             $this->session->getFlashBag()->add("estado", $estado); //para los mensajes de confirmacion
             //return $this->redirectToRoute("listaentradas"); //redirigirnos a las lita
@@ -84,32 +69,29 @@ class ProductController extends Controller {
         ));
     }
 
-    //listar entradas
+    //listar Productos
     public function listaEntryAction($page) {
         $em = $this->getDoctrine()->getEntityManager();
-        $entry_repo = $em->getRepository("blogBundle:Entry");
+        $entry_repo = $em->getRepository("adminBundle:Product");
 
-        $category_repo = $em->getRepository("blogBundle:Category"); //listar categorias en el menu
+        $category_repo = $em->getRepository("adminBundle:Category"); //listar categorias en el menu
 
-        //$entries = $entry_repo->findAll(); //listar entradas
-        $pagesize = 5;
-        $entries = $entry_repo->getPaginaterEntries($pagesize,$page);
+        $products = $entry_repo->findAll(); //listar entradas
+        //$pagesize = 5;
+        //$entries = $entry_repo->getPaginaterEntries($pagesize,$page);
 
 
         //mostrar los links
-        $totalitems = count($entries);
-        $pagesCount  =  ceil($totalitems/$pagesize);
+       // $totalitems = count($entries);
+        //$pagesCount  =  ceil($totalitems/$pagesize);
 
 
 
         $categories = $category_repo->findAll(); //listar categorias en el menu
-        return $this->render("blogBundle:EntryVista:listaEntry.html.twig", array(
-            "entries" => $entries,
-            "categories" => $categories,
-            "totalitems"=> $totalitems,
-            "pagecount"=>$pagesCount,
-            "page" => $page,
-            "pagesumar" => $page
+        return $this->render("adminBundle:viewProduct:productList.html.twig", array(
+            "products" => $products,
+            "categories" => $categories
+
         ));
     }
 

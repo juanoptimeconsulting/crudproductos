@@ -28,8 +28,11 @@ estadodesactivar:
 
 addproduct:
     path: product/addproduct
-    defaults: { _controller: adminBundle:Product:agregarentradas}
+    defaults: { _controller: adminBundle:Product:addProduct}
 
+listaproducts:
+    path: product/list/{page}
+    defaults: { _controller: adminBundle:Product:listaEntry, page: 1}
 
 
 
