@@ -10,6 +10,7 @@ use adminBundle\Form\CategoryType;
 
 class CategoryController extends Controller {
 
+    //message flash
     private $session;
 
     public function __construct() {
@@ -39,13 +40,13 @@ class CategoryController extends Controller {
                 if ($flush == null) {
                     $estado = "la categoria se ha creado correctamente";
                 } else {
-                    $estado = "error a la añdir la Categoria";
+                    $estado = "error a la añadir la Categoria";
                 }
             } else {
-                $estado = "Eror de Formlario";
+                $estado = "Error de Formulario";
             }
-            $this->session->getFlashBag()->add("estado", $estado);//para los mensajes de confirmacion
-            return $this->redirectToRoute("listcategory"); //redirigirnos a las lita
+            $this->session->getFlashBag()->add("estado", $estado);//flash of message
+            return $this->redirectToRoute("listcategory"); //redirect the list
         }
 
 
@@ -65,7 +66,7 @@ class CategoryController extends Controller {
         ));
     }
 
-    //BORRAR UNA CATEGORIA, no se elimina ya que hay una forekey entre productos
+    //delete category
     public function deletecategoryAction($id) {
 
         try {
@@ -76,7 +77,7 @@ class CategoryController extends Controller {
             $categories = $category_repo->find($id);
 
 
-            //verificar si esta siendo utlizada la etiqueta para poder elimianarla
+            //verificar si esta siendo utlizada la categoria para poder eliminarla
             if (count($categories->getProducts()) == 0) {
                 $em->remove($categories);
                 $em->flush();
@@ -92,7 +93,7 @@ class CategoryController extends Controller {
 
     public function editcategoryAction(Request $request, $id)
     {
-        //se setean los datos para que sean enviados al formulario
+
 
 
         $em = $this->getDoctrine()->getEntityManager();
@@ -100,13 +101,13 @@ class CategoryController extends Controller {
         $categories_edit = $category_repo->find($id);
 
 
-        $form = $this->createForm(CategoryType::class, $categories_edit); //llenar los datos al forumlario
-        //var_dump(count($tags->getEntryTag()));
+        $form = $this->createForm(CategoryType::class, $categories_edit); //llenar los datos al formulario
+
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
 
-            if ($form->isValid()) {//Aqui se lleva la validacion desde validation.yml,
+            if ($form->isValid()) {//validation.yml,
 
 
                 $categories_edit->setCode($form->get("code")->getData());
@@ -140,22 +141,22 @@ public function editestadoAction($id, $active)
 
 
     $em = $this->getDoctrine()->getManager();
-    $cursos_repo = $em->getRepository("adminBundle:Category");
-    $curso = $cursos_repo->find($id);
+    $category_repo = $em->getRepository("adminBundle:Category");
+    $estado = $category_repo->find($id);
 
-    $curso->setActive($active);
+    $estado->setActive($active);
 
 
-    $em->persist($curso); //guarda los datos dentro de cotrine
+    $em->persist($estado); //guarda los datos dentro de doctrine
     $flush = $em->flush(); //volcar los datos a la BD
 
     if ($flush != null) {
         echo "404 ";
     } else {
-        echo "cambio de estado exitoso";
+        echo "cambio  exitoso";
      return $this->redirectToRoute("listcategory");
     }
-    $categories = $cursos_repo->findAll(); //listar todos
+    $categories = $category_repo->findAll(); //listar todos
     return $this->render("adminBundle:viewCategory:listCategory.html.twig", array (
         'category'=>$categories));
 

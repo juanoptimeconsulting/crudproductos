@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use adminBundle\Form\ProductType;
 
 class ProductController extends Controller {
-
+    //message flash
     private $session;
 
     public function __construct() {
@@ -36,7 +36,7 @@ class ProductController extends Controller {
 
 
 
-                //para el combo box
+                //for combo
                 $categori_repo = $em->getRepository("adminBundle:Category");
 
                 $category = $categori_repo->find($form->get("category")->getData());
@@ -45,7 +45,7 @@ class ProductController extends Controller {
 
 
                 $em->persist($entry);
-                $flush = $em->flush();
+                $flush = $em->flush();//submit
 
 
 
@@ -70,7 +70,7 @@ class ProductController extends Controller {
     }
 
     //listar Productos
-    public function listaEntryAction($page) {
+    public function listaProductAction($page) {
         $em = $this->getDoctrine()->getEntityManager();
         $Product_repo = $em->getRepository("adminBundle:Product");
 
@@ -99,17 +99,17 @@ class ProductController extends Controller {
         ));
     }
 
-    public function deleteEntryAction($id) {
+    public function deleteProductAction($id) {
         $em = $this->getDoctrine()->getEntityManager();
-        $entry_repo = $em->getRepository("adminBundle:Product");
+        $product_repo = $em->getRepository("adminBundle:Product");
 
 
-        $entry =  $entry_repo->find($id);
+        $product =  $product_repo->find($id);
 
 
 
 
-        $em->remove($entry);
+        $em->remove($product);
         $em->flush();
 
 
@@ -119,9 +119,9 @@ class ProductController extends Controller {
     }
 
 
-    public function editEntryAction(Request $request, $id){
+    public function editProductAction(Request $request, $id){
         $em = $this->getDoctrine()->getEntityManager();
-        $entry_repo = $em->getRepository("adminBundle:Product");
+        $product_repo = $em->getRepository("adminBundle:Product");
 
         //para el combo box
         $categori_repo = $em->getRepository("adminBundle:Category");
@@ -131,7 +131,7 @@ class ProductController extends Controller {
 
 
         //generar el formulario en base a una entrada
-        $product = $entry_repo->find($id);
+        $product = $product_repo->find($id);
 
 
 
@@ -141,7 +141,7 @@ class ProductController extends Controller {
 
         if ($form->isSubmitted()) {
 
-            if ($form->isValid()) {//Aqui se lleva la validacion desde validation.yml,
+            if ($form->isValid()) {// validation.yml,
 
 
 

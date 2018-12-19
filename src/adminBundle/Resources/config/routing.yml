@@ -32,14 +32,14 @@ addproduct:
 
 listaproducts:
     path: product/list/{page}
-    defaults: { _controller: adminBundle:Product:listaEntry, page: 1}
+    defaults: { _controller: adminBundle:Product:listaProduct, page: 1}
 
 deleteproducts:
     path: product/delete/{id}
-    defaults: { _controller: adminBundle:Product:deleteEntry}
+    defaults: { _controller: adminBundle:Product:deleteProduct}
 
 editproducts:
     path: product/edit/{id}
-    defaults: { _controller: adminBundle:Product:editEntry}
+    defaults: { _controller: adminBundle:Product:editProduct}
 
 
