@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d7ef243-789f-44f0-89df-434c784f9e76" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml" afterDir="false" />
-    </list>
+    <list default="true" id="1d7ef243-789f-44f0-89df-434c784f9e76" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +71,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="1264">
               <caret line="155" column="21" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
               <folding>
                 <element signature="e#42#99#0#PHP" expanded="true" />
@@ -116,17 +111,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+            <state relative-caret-position="-34">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding>
+                <element signature="e#281#303#1#PHP" expanded="true" />
+                <element signature="e#648#685#1#PHP" expanded="true" />
+                <element signature="e#763#800#1#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-895">
-              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+            <state relative-caret-position="210">
+              <caret line="112" column="21" lean-forward="true" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
               <folding>
                 <element signature="e#42#99#0#PHP" expanded="true" />
               </folding>
@@ -148,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/Products.orm.yml" />
         <option value="$PROJECT_DIR$/src/adminBundle/Entity/Product.php" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/Category.orm.yml" />
-        <option value="$PROJECT_DIR$/src/adminBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/addCategory.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory" />
@@ -168,6 +167,7 @@
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/adminBundle/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" />
+        <option value="$PROJECT_DIR$/src/adminBundle/Controller/DefaultController.php" />
       </list>
     </option>
   </component>
@@ -176,11 +176,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/sweetalert-2.1.0/package.json" />
-    </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -393,7 +388,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51788000" />
+    <option name="totallyTimeSpent" value="52218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -630,26 +625,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-895">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-          <folding>
-            <element signature="e#42#99#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="1264">
           <caret line="155" column="21" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
           <folding>
             <element signature="e#42#99#0#PHP" expanded="true" />
@@ -660,6 +638,28 @@
             <element signature="e#4783#4832#0#PHP" expanded="true" />
             <element signature="e#5037#5059#1#PHP" expanded="true" />
             <element signature="e#5495#5544#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="e#281#303#1#PHP" expanded="true" />
+            <element signature="e#648#685#1#PHP" expanded="true" />
+            <element signature="e#763#800#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="112" column="21" lean-forward="true" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
+          <folding>
+            <element signature="e#42#99#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
