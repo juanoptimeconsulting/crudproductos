@@ -11,20 +11,23 @@ listcategory:
         defaults: { _controller: adminBundle:Category:listacategoria}
 
 deletecategory:
-            path:     categories/delete/{id}
-            defaults: { _controller: adminBundle:Category:deletecategory}
+    path:     categories/delete/{id}
+    defaults: { _controller: adminBundle:Category:deletecategory}
+
+estadoactivar:
+            path:     categories/activar/{id}
+            defaults: { _controller: adminBundle:Category:editestado, active: 0}
 
 redirecioneditcategory:
     path: categories/editcategory/{id}
     defaults: { _controller: adminBundle:Category:editcategory}
 
-estadocategory:
+estadodesactivar:
         path: categories/editestado/{id}
-        defaults: { _controller: adminBundle:Category:editestado, active: 0}
+        defaults: { _controller: adminBundle:Category:editestado, active: 1}
 
-estadocategorys:
-        path: categories/editestado/{id}
-        defaults: { _controller: adminBundle:Category:editestados, active: 1}
+
+
 
 
 

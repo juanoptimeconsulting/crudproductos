@@ -41,13 +41,14 @@
                     <td>{{ categories.description}}</td>
 
 
-                    {%   if categories.active == 1 %}
+                    {%   if categories.active == 1  %}
 
-                        <td><a href= "{{ path("estadocategory", { "id":categories.id })}}" class="btn btn-info">Activar</a></td>
+                        <td><a href= "{{ path("estadoactivar", { "id":categories.id })}}" class="btn btn-info">Activar</a></td>
 
-                    {%   else %}
+                    {% else %}
 
-                        <td><a href= "{{ path("estadocategorys", { "id":categories.id })}}" class="btn btn-danger">Desactivar</a></td>
+                        <td><a href= "{{ path("estadodesactivar", { "id":categories.id })}}" class="btn btn-danger">Desactivar</a></td>
+
                     {% endif %}
 
                     <td><a href="{{path("redirecioneditcategory",{"id":categories.id})}}" class="btn btn-info">Editar</a></td>
@@ -63,7 +64,7 @@
                     {% else %}
 
 
-                        <td><a class="btn btn-warning" href="#" >Categoria en uso</a></td>
+                        <td><a id="button-b" class="btn btn-warning" href="#" >Categoria en uso</a></td>
 
                     {% endif %}
 
@@ -105,7 +106,7 @@
         {%endif%}
     </div>
     <script>
-        $('#button-a').click(function(){
+        $('#button-b').click(function(){
 
             swal({
                 title: "estas seguro?",
@@ -126,6 +127,15 @@
                         swal("Gracias");
                     }
                 });
+
+        });
+        $('#button-b').click(function(){
+
+            swal({
+                title: "Disculpa!",
+                text: "Esta Categoria esta en uso es imposible eliminar",
+                imageUrl: 'thumbs-up.jpg'
+            });
 
         });
 

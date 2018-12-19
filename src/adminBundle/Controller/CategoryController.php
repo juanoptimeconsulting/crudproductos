@@ -150,12 +150,14 @@ public function editestadoAction($id, $active)
     $flush = $em->flush(); //volcar los datos a la BD
 
     if ($flush != null) {
-        echo "ERROR ";
+        echo "404 ";
     } else {
-        echo "SE EDITO CON EXITO";
-
+        echo "cambio de estado exitoso";
+     return $this->redirectToRoute("listcategory");
     }
-    return $this->redirectToRoute("listcategory");
+    $categories = $cursos_repo->findAll(); //listar todos
+    return $this->render("adminBundle:viewCategory:listCategory.html.twig", array (
+        'category'=>$categories));
 
 }
 
