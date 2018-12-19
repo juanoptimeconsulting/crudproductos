@@ -1,0 +1,38 @@
+{% extends "adminBundle::inicio.html.twig"%}
+{% block content %}
+
+    <h2>REGISTRO DE PRODUCTOS</h2>
+    <div class="form-row">
+
+
+        {% if app.session.flashbag().get('estado') is defined %}
+
+
+            {% for message in app.session.flashbag().get('estado')%}
+
+
+                {% if message ==  "el Producto se ha creado correctamente"%}
+
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                    </div>
+
+
+                {%endif%}
+
+
+
+
+
+            {%endfor%}
+        {%endif%}
+        <div class="form-group col-md-6">
+            {{form_start(form)}}
+            <br/>
+            {{form_end(form)}}
+
+
+        </div>
+
+    </div>
+{% endblock%}

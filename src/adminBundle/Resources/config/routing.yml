@@ -26,6 +26,9 @@ estadodesactivar:
         path: categories/editestado/{id}
         defaults: { _controller: adminBundle:Category:editestado, active: 1}
 
+addproduct:
+    path: product/addproduct
+    defaults: { _controller: adminBundle:Product:agregarentradas}
 
 
 
