@@ -55,10 +55,10 @@ class ProductController extends Controller {
                     $estado = "error a la añadir el Producto";
                 }
             } else {
-                $estado = "Eror de Formulario";
+                $estado = "Error de Formulario";
             }
             $this->session->getFlashBag()->add("estado", $estado); //para los mensajes de confirmacion
-            //return $this->redirectToRoute("listaentradas"); //redirigirnos a las lita
+            return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
         }
 
 
@@ -72,11 +72,11 @@ class ProductController extends Controller {
     //listar Productos
     public function listaEntryAction($page) {
         $em = $this->getDoctrine()->getEntityManager();
-        $entry_repo = $em->getRepository("adminBundle:Product");
+        $Product_repo = $em->getRepository("adminBundle:Product");
 
         $category_repo = $em->getRepository("adminBundle:Category"); //listar categorias en el menu
 
-        $products = $entry_repo->findAll(); //listar entradas
+        $products = $Product_repo->findAll(); //listar entradas
         //$pagesize = 5;
         //$entries = $entry_repo->getPaginaterEntries($pagesize,$page);
 

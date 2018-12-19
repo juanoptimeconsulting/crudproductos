@@ -1,6 +1,8 @@
 {# empty Twig template #}
 {% extends "adminBundle::inicio.html.twig"%}
-
+{% block menu %}
+    {% include "adminBundle:viewCategory:menucategory.html.twig"  with{'categories': categories} %}{#para listar las categorias en la barra superior #}
+{% endblock %}
 
 {% block content %}
     {% if app.session.flashbag().get('estado') is defined %}
@@ -38,7 +40,7 @@
         <div class="col-lg-11" >
 
             <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
-             <p> Categoria:{{productsllegada.category.name}}</p>
+             <p> Categoria: {{productsllegada.category.name}}</p>
 
             {%if (app.user.id is defined) and  entry.user.id == app.user.id%}{#para verificar si el usuario esta logeado#}
                 <p>
@@ -56,6 +58,6 @@
         </div>
         <div class="clearfix"></div>
     {%endfor%}
-   
+
 
 {%endblock%}
