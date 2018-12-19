@@ -20,7 +20,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('code', TextType::class, array("label"=>"Codigo","required" => "required", "attr" => array(
-                "class" => "form-name form-control")))
+                "class" => "form-name form-control", "type"=>"number")))
             ->add('name', TextType::class, array("label"=>"Nombre","required" => "required", "attr" => array(
                 "class" => "form-name form-control")))
             ->add('description', TextareaType::class, array("label"=>"Descripcion","required" => "required", "attr" => array(
