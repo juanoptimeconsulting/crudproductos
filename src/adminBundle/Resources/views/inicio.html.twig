@@ -46,16 +46,16 @@
 
 
 
-                        {% if app.user == null %}
-                            <a class="dropdown-item" href="#">Entrar</a>
 
-                        {%else%}
-                            <a class="dropdown-item" href="#">Salir</a>
-                            {% if app.user.role == "ROLE_ADMIN" %}
-                                <a class="dropdown-item" href="#">Lista de Productos</a>
-                                <a class="dropdown-item" href="#">Crear Productos</a>
-                            {%endif%}
-                        {% endif %}
+                            <a class="dropdown-item" href="{{ path('listaproducts') }}">Lista de Productos</a>
+
+                              <a class="dropdown-item" href="{{ path('addproduct') }}">Agregar Productos</a>
+
+                              <a class="dropdown-item" href="{{ path('listcategory') }}">Lista de Categorias</a>
+
+
+                                <a class="dropdown-item" href="{{ path('addcategory') }}">Agregar Categorias</a>
+
 
                         <a class="dropdown-item" href="#">Ayuda</a>
                     </div>

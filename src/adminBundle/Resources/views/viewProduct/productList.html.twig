@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <h2>LISTA DE PRODUCTOS ACTIVADOS </h2>
     {% if app.session.flashbag().get('estado') is defined %}
 
 
@@ -37,11 +38,15 @@
 
 
     {% for productsllegada in products %}
-        <div class="col-lg-11" >
 
-            <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
-             <p> Categoria: {{productsllegada.category.name}}</p>
 
+
+
+
+            {% if productsllegada.category.active == 0 %}
+                <div class="col-lg-11" >
+                <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+                <p> Categoria: {{productsllegada.category.name}}</p>
 
                 <p>
                     <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
@@ -52,12 +57,48 @@
                 </p>
 
 
-            <div class="clearfix"></div>
-            <hr>
+                <div class="clearfix"></div>
+                <hr>
 
-        </div>
-        <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+
+            {% endif%}
+
     {%endfor%}
 
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+
+            {% if(page == 1) %}{#controla que no pueda retroceder menos de 0 #}
+
+
+            {% else %}
+
+                {% set page  = page-1 %}
+            {% endif %}
+
+
+            <li class="page-item"><a  class="page-link" href="{{  path('listaproducts', {'page': page}) }}">&laquo;</a></li>
+            {% for i in 1..pagecount %}
+                <li class="page-item">
+                    <a class="page-link" href="{{  path('listaproducts', {'page': i}) }}">{{ i }}</a>
+                </li>
+            {% endfor %}
+
+            {% if(pagesumar == pagecount) %}{#controla que no pueda avanzar  mas  de pagecount #}
+
+
+            {% else %}
+
+                {% set pagesumar  = page+1 %}
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="{{  path('listaproducts', {'page': pagesumar}) }}">&raquo;</a></li>
+
+
+
+        </ul>
+    </nav>
 
 {%endblock%}

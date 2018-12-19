@@ -1,6 +1,7 @@
 adminBundle\Entity\Product:
     type: entity
     table: products
+    repositoryClass: adminBundle\Repository\ProductRepository
     indexes:
         fk_products_categories:
             columns:

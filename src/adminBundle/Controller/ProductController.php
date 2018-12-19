@@ -76,21 +76,25 @@ class ProductController extends Controller {
 
         $category_repo = $em->getRepository("adminBundle:Category"); //listar categorias en el menu
 
-        $products = $Product_repo->findAll(); //listar entradas
-        //$pagesize = 5;
-        //$entries = $entry_repo->getPaginaterEntries($pagesize,$page);
+       // $products = $Product_repo->findAll(); //listar entradas
+        $pagesize = 5;
+        $products = $Product_repo->getPaginaterProducts($pagesize,$page);
 
 
-        //mostrar los links
-       // $totalitems = count($entries);
-        //$pagesCount  =  ceil($totalitems/$pagesize);
+        $totalitems = count($products);
+
+        $pagesCount  =  ceil($totalitems/$pagesize);
 
 
 
         $categories = $category_repo->findAll(); //listar categorias en el menu
         return $this->render("adminBundle:viewProduct:productList.html.twig", array(
             "products" => $products,
-            "categories" => $categories
+            "categories" => $categories,
+            "totalitems"=> $totalitems,
+            "pagecount"=>$pagesCount,
+            "page" => $page,
+            "pagesumar" => $page
 
         ));
     }
