@@ -1,9 +1,7 @@
 {# empty Twig template #}
 {% extends "adminBundle::inicio.html.twig"%}
 
-{% block menu %}
-{% include "adminBundle:viewCategory:menuCategory.html.twig"  with{'categories': categories} %}
-{% endblock %}
+
 {% block content %}
     {% if app.session.flashbag().get('estado') is defined %}
 

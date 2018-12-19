@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: JDIAZ
- * Date: 19/12/2018
- * Time: 12:02 PM
- */
 
-namespace adminBundle\Tests;
+namespace adminBundle;
 
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class adminBundle
+class adminBundle extends Bundle
 {
-
 }
