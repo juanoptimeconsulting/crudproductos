@@ -34,6 +34,12 @@ listaproducts:
     path: product/list/{page}
     defaults: { _controller: adminBundle:Product:listaEntry, page: 1}
 
+deleteproducts:
+    path: product/delete/{id}
+    defaults: { _controller: adminBundle:Product:deleteEntry}
 
+editproducts:
+    path: product/edit/{id}
+    defaults: { _controller: adminBundle:Product:editEntry}
 
 

@@ -42,15 +42,15 @@
             <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
              <p> Categoria: {{productsllegada.category.name}}</p>
 
-            {%if (app.user.id is defined) and  entry.user.id == app.user.id%}{#para verificar si el usuario esta logeado#}
+
                 <p>
-                    <a href="#" class="btn btn-danger">Eliminar</a>
+                    <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
                 </p>
 
                 <p>
-                    <a href="#" class="btn btn-success">Editar</a>
+                    <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
                 </p>
-            {%endif%}
+
 
             <div class="clearfix"></div>
             <hr>

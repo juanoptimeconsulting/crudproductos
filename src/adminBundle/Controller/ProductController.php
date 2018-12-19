@@ -97,24 +97,19 @@ class ProductController extends Controller {
 
     public function deleteEntryAction($id) {
         $em = $this->getDoctrine()->getEntityManager();
-        $entry_repo = $em->getRepository("blogBundle:Entry");
-        $entry_tag = $em->getRepository("blogBundle:EntryTag");
+        $entry_repo = $em->getRepository("adminBundle:Product");
+
 
         $entry =  $entry_repo->find($id);
-        $entrytags =   $entry_tag->findBy(array("entry"=>$entry));
 
-        foreach ($entrytags as $entgs){
 
-            $em->remove($entgs);
-            $em->flush();
-        }
 
 
         $em->remove($entry);
         $em->flush();
 
 
-        return $this->redirectToRoute("listaentradas");
+        return $this->redirectToRoute("listaproducts");
 
 
     }
@@ -122,28 +117,21 @@ class ProductController extends Controller {
 
     public function editEntryAction(Request $request, $id){
         $em = $this->getDoctrine()->getEntityManager();
-        $entry_repo = $em->getRepository("blogBundle:Entry");
+        $entry_repo = $em->getRepository("adminBundle:Product");
 
         //para el combo box
-        $categori_repo = $em->getRepository("blogBundle:Category");
+        $categori_repo = $em->getRepository("adminBundle:Category");
 
 
 
 
 
         //generar el formulario en base a una entrada
-        $entry = $entry_repo->find($id);
+        $product = $entry_repo->find($id);
 
 
-        //para recoger las tags (bucle)
-        $tags  = "";
-        foreach ($entry->getEntryTag() as $entryTas) {
 
-            $tags.=$entryTas->getTag()->getName().",";
-
-        }
-
-        $form = $this->createForm(EntryType::class,$entry);
+        $form = $this->createForm(ProductType::class,$product);
         $form->handleRequest($request);
         //comprovar si los datos son validos
 
@@ -153,69 +141,49 @@ class ProductController extends Controller {
 
 
 
-                $entry->setTitle($form->get("title")->getData()); //seteo de los datos de FRM
-                $entry->setContent($form->get("content")->getData());
-                $entry->setStatus($form->get("status")->getData());
+                $product->setCode($form->get("code")->getData()); //seteo de los datos de FRM
+                $product->setName($form->get("name")->getData());
+                $product->setDescription($form->get("description")->getData());
+                $product->setBrand($form->get("brand")->getData());
+                $product->setPrice($form->get("price")->getData());
 
-                //mandar la imagen a la BD
-                $file = $form['image']->getData();
-                $extension = $file->guessExtension(); //sacar la extension
-                $file_name = time() . "." . $extension; //time para sacar un unico digito
-                $file->move("uploads", $file_name); // moverlo a un directorio
-                //en la bD poner el mismo nombre
-
-                $entry->setImage($file_name);
 
 
                 //para el combo box
                 $category = $categori_repo->find($form->get("category")->getData());
 
-                $entry->setCategory($category); //pasamos un objeto
-                //sacar el usuario que hay logeado
-                $user = $this->getUser();
-                $entry->setUser($user);
+                $product->setCategory($category); //pasamos un objeto
 
 
-                $em->persist($entry);
+
+                $em->persist($product);
                 $flush = $em->flush();
 
 
-                //para listar las tags, aqui eliminamos y luego volvemos a meter la tag, claramente no se va a rrepetir la tag
-                $entry_tag = $em->getRepository("blogBundle:EntryTag");
-                $entrytags =   $entry_tag->findBy(array("entry"=>$entry));
-
-                foreach ($entrytags as $entgs) {
-
-                    $em->remove($entgs);
-                    $em->flush();
-                }
 
 
 
-                $entry_repo->saveEntryTags(
-                    $form->get("Tags")->getData(), $form->get("title")->getData(), $category, $user
-                );
+
 
 
                 if ($flush == null) {
-                    $estado = "la Entrada se ha editado correctamente";
+                    $estado = "el Producto se ha editado correctamente";
                 } else {
-                    $estado = "error al editar  la Entrada";
+                    $estado = "error al editar  el Producto";
                 }
             } else {
                 $estado = "Error de Formulario";
             }
             $this->session->getFlashBag()->add("estado", $estado); //para los mensajes de confirmacion
-            return $this->redirectToRoute("listaentradas"); //redirigirnos a las lita
+            return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
         }
 
 
 
 
-        return $this->render("blogBundle:EntryVista:editEntradas.html.twig", array(
+        return $this->render("adminBundle:viewProduct:productEdit.html.twig", array(
             'form' => $form->createView(),
-            'entry' => $entry,
-            'Tags'=>$tags
+            'product' => $product
         ));
 
 
