@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d7ef243-789f-44f0-89df-434c784f9e76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/validation.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/editCategory.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/CategoryType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/.gitkeep" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +22,8 @@
         <counts>
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.43" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -53,18 +48,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="listCategory" value="40" />
-          <entry key="php" value="1276" />
-          <entry key="twig" value="1897" />
+          <entry key="php" value="1440" />
+          <entry key="twig" value="1972" />
           <entry key="xml" value="1" />
-          <entry key="yml" value="373" />
+          <entry key="yml" value="512" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="1276" />
-          <entry key="Twig" value="1937" />
+          <entry key="PHP" value="1440" />
+          <entry key="Twig" value="2012" />
           <entry key="XML" value="1" />
-          <entry key="YAML" value="373" />
+          <entry key="YAML" value="512" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -76,24 +71,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="318">
+              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="45" column="61" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="61" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="185">
+              <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -101,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="157" column="47" selection-start-line="157" selection-start-column="35" selection-end-line="157" selection-end-column="47" />
+            <state relative-caret-position="301">
+              <caret line="155" column="51" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
               <folding>
                 <element signature="e#42#99#0#PHP" expanded="true" />
               </folding>
@@ -113,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/addCategory.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12">
+            <state relative-caret-position="17">
               <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
             </state>
           </provider>
@@ -122,17 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/editCategory.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="816">
               <caret line="48" column="10" selection-start-line="42" selection-start-column="3" selection-end-line="48" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/validation.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -140,8 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="93" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="93" />
+            <state relative-caret-position="272">
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -149,7 +131,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/CategoryType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="153">
               <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
@@ -158,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/Product.orm.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="884">
               <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
             </state>
           </provider>
@@ -167,7 +149,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adminBundle/Entity/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="2584">
               <caret line="152" column="31" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="31" />
             </state>
           </provider>
@@ -193,13 +175,13 @@
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/addCategory.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory" />
-        <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/validation.yml" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/editCategory.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Form/CategoryType.php" />
-        <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory.html.twig" />
-        <option value="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" />
+        <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php" />
+        <option value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory.html.twig" />
       </list>
     </option>
   </component>
@@ -211,6 +193,10 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
+      <path value="$PROJECT_DIR$/node_modules/bootbox/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/es6-object-assign/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/promise-polyfill/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/sweetalert/package.json" />
       <path value="$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/sweetalert-2.1.0/package.json" />
     </packageJsonPaths>
   </component>
@@ -403,17 +389,18 @@
       <updated>1545085167441</updated>
       <workItem from="1545085168938" duration="655000" />
       <workItem from="1545138680944" duration="35004000" />
+      <workItem from="1545227190110" duration="2880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35659000" />
+    <option name="totallyTimeSpent" value="38539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -486,27 +473,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/Product.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="152" column="31" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/editCategory.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="93" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="93" />
+        <state relative-caret-position="816">
+          <caret line="48" column="10" selection-start-line="42" selection-start-column="3" selection-end-line="48" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -517,31 +490,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/editCategory.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/CategoryType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="10" selection-start-line="42" selection-start-column="3" selection-end-line="48" selection-end-column="10" />
+        <state relative-caret-position="153">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/CategoryType.php">
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/doctrine/Product.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="884">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Entity/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="152" column="31" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/addCategory.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
+        <state relative-caret-position="17">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/inicio.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="157" column="47" selection-start-line="157" selection-start-column="35" selection-end-line="157" selection-end-column="47" />
+        <state relative-caret-position="301">
+          <caret line="155" column="51" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
           <folding>
             <element signature="e#42#99#0#PHP" expanded="true" />
           </folding>
@@ -550,19 +544,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/views/viewCategory/listCategory.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="45" column="61" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="61" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="185">
+          <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
         </state>
       </provider>
     </entry>
