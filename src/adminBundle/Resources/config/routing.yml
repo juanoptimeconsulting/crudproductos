@@ -1,0 +1,45 @@
+admin_homepage:
+    path:     /listar
+    defaults: { _controller: adminBundle:Default:inicio}
+
+addcategory:
+    path:     categories/add
+    defaults: { _controller: adminBundle:Category:addCategory}
+
+listcategory:
+        path:     categories/list
+        defaults: { _controller: adminBundle:Category:listacategoria}
+
+deletecategory:
+    path:     categories/delete/{id}
+    defaults: { _controller: adminBundle:Category:deletecategory}
+
+estadoactivar:
+            path:     categories/activar/{id}
+            defaults: { _controller: adminBundle:Category:editestado, active: 0}
+
+redirecioneditcategory:
+    path: categories/editcategory/{id}
+    defaults: { _controller: adminBundle:Category:editcategory}
+
+estadodesactivar:
+        path: categories/editestado/{id}
+        defaults: { _controller: adminBundle:Category:editestado, active: 1}
+
+addproduct:
+    path: product/addproduct
+    defaults: { _controller: adminBundle:Product:addProduct}
+
+listaproducts:
+    path: product/list/{page}
+    defaults: { _controller: adminBundle:Product:listaProduct, page: 1}
+
+deleteproducts:
+    path: product/delete/{id}
+    defaults: { _controller: adminBundle:Product:deleteProduct}
+
+editproducts:
+    path: product/edit/{id}
+    defaults: { _controller: adminBundle:Product:editProduct}
+
+

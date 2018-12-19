@@ -1,0 +1,127 @@
+{# empty Twig template #}
+{% extends "adminBundle::inicio.html.twig"%}
+{% block menu %}
+    {% include "adminBundle:viewCategory:menucategory.html.twig"  with{'categories': categories} %}{#para listar las categorias en la barra superior #}
+{% endblock %}
+
+{% block content %}
+
+    {% if app.session.flashbag().get('estado') is defined %}
+
+
+        {% for message in app.session.flashbag().get('estado')%}
+
+
+            {% if message ==  "el Producto se ha creado correctamente"%}
+
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+
+
+            {% elseif message == "el Producto se ha editado correctamente" %}
+
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+
+            {%endif%}
+
+
+
+
+
+        {%endfor%}
+    {%endif%}
+
+
+
+
+    {% for productsllegada in products %}
+
+
+
+
+
+            {% if productsllegada.category.active == 0 %}
+                <h2>Producto Activado</h2>
+                <div class="col-lg-11" >
+                <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+                <p> Categoria: {{productsllegada.category.name}}</p>
+
+                <p>
+                    <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+                </p>
+
+                <p>
+                    <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
+                </p>
+
+
+                <div class="clearfix"></div>
+                <hr>
+
+                </div>
+                <div class="clearfix"></div>
+
+
+                {% else %}
+                    <h2>Producto Desactivado</h2>
+                    <div class="col-lg-11" >
+                        <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+                        <p> Categoria: {{productsllegada.category.name}}</p>
+
+                        <p>
+                            <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+                        </p>
+
+                        <p>
+                            <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
+                        </p>
+
+
+                        <div class="clearfix"></div>
+                        <hr>
+
+                    </div>
+                    <div class="clearfix"></div>
+
+            {% endif%}
+
+    {%endfor%}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+
+            {% if(page == 1) %}{#controla que no pueda retroceder menos de 0 #}
+
+
+            {% else %}
+
+                {% set page  = page-1 %}
+            {% endif %}
+
+
+            <li class="page-item"><a  class="page-link" href="{{  path('listaproducts', {'page': page}) }}">&laquo;</a></li>
+            {% for i in 1..pagecount %}
+                <li class="page-item">
+                    <a class="page-link" href="{{  path('listaproducts', {'page': i}) }}">{{ i }}</a>
+                </li>
+            {% endfor %}
+
+            {% if(pagesumar == pagecount) %}{#controla que no pueda avanzar  mas  de pagecount #}
+
+
+            {% else %}
+
+                {% set pagesumar  = page+1 %}
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="{{  path('listaproducts', {'page': pagesumar }) }}">&raquo;</a></li>
+
+
+
+        </ul>
+    </nav>
+
+{%endblock%}
