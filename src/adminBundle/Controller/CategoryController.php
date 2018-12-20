@@ -34,19 +34,37 @@ class CategoryController extends Controller {
                 $category->setDescription($form->get("description")->getData());
                 $category->setActive($form->get("active")->getData());
 
-                $em->persist($category);
-                $flush = $em->flush();
 
-                if ($flush == null) {
-                    $estado = "la categoria se ha creado correctamente";
-                } else {
-                    $estado = "error a la añadir la Categoria";
+
+                if($category->getName() ==  $category->getCode()) {
+
+
+                    $estate = "el Nombre no puede ser igual al codigo";
+
+
+                }else if (strpos($category->getCode(), " ") ){
+
+
+                    $estate = "el codigo no puede contener espacios en blanco";
+
+
+
+                    //´|i|:|!|#|%|&|=|¡|¿|;|{|}|-|,|.|<|>|~|°
+                }else if( preg_match("/(á|é|í|ó|ú|ñ+)/", $category->getCode())) {
+
+                    $estate = "has ingresado caracteres no validos";
+
+                }else{
+                    $em->persist($category);
+                     $em->flush();
+                    $estate = "se ha creado la categoria";
                 }
+
             } else {
-                $estado = "Error de Formulario";
+                $estate = "el nombre debe tener mínimo 2 caracteres";
             }
-            $this->session->getFlashBag()->add("estado", $estado);//flash of message
-            return $this->redirectToRoute("listcategory"); //redirect the list
+            $this->session->getFlashBag()->add("estado", $estate);//flash of message
+            //return $this->redirectToRoute("listcategory"); //redirect the list
         }
 
 
@@ -91,6 +109,7 @@ class CategoryController extends Controller {
 
 
 
+    //edit category
     public function editcategoryAction(Request $request, $id)
     {
 
@@ -119,14 +138,14 @@ class CategoryController extends Controller {
                 $flush = $em->flush();
 
                 if ($flush == null) {
-                    $estado = "la categoria se ha editado correctamente";
+                    $estate = "la categoria se ha editado correctamente";
                 } else {
-                    $estado = "error a la editar la Categoria";
+                    $estate = "error a la editar la Categoria";
                 }
             } else {
-                $estado = "Error de Formulario";
+                $estate = "Error de Formulario";
             }
-            $this->session->getFlashBag()->add("estado", $estado);//para los mensajes de confirmacion
+            $this->session->getFlashBag()->add("estado", $estate);//para los mensajes de confirmacion
             return $this->redirectToRoute("listcategory"); //redirigirnos a las lita
         }
 
@@ -136,6 +155,7 @@ class CategoryController extends Controller {
     }
 
 
+    //edit action whit rutes
 public function editestadoAction($id, $active)
 {
 

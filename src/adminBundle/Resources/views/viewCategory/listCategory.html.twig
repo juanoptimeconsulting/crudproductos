@@ -53,15 +53,9 @@
 
                     <td><a href="{{path("redirecioneditcategory",{"id":categories.id})}}" class="btn btn-info">Editar</a></td>
 
-                    {% if categories.products|length == 0 %}{#condicional para saber si una etiqueta esta siendo utilizada por una entrada#}
+                    {% if categories.products|length != 0 %}{#condicional para saber si una etiqueta esta siendo utilizada por una entrada#}
 
 
-
-                        <td><a  id="button-a" href="{{ path ("deletecategory",{"id":categories.id}) }}" class="btn btn-danger">Eliminar</a></td>
-
-
-
-                    {% else %}
 
 
                         <td><a id="button-b" class="btn btn-warning" href="#" >Categoria en uso</a></td>
@@ -91,6 +85,7 @@
                     <div class="alert alert-primary" role="alert">
                         {{ message }}
                     </div>
+
                 {%endif%}
 
                 {% if message ==  "formulario no valido" %}
@@ -127,15 +122,6 @@
                         swal("Gracias");
                     }
                 });
-
-        });
-        $('#button-b').click(function(){
-
-            swal({
-                title: "Disculpa!",
-                text: "Esta Categoria esta en uso es imposible eliminar",
-                imageUrl: 'thumbs-up.jpg'
-            });
 
         });
 

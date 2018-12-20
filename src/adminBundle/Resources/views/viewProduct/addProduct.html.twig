@@ -11,28 +11,47 @@
             {% for message in app.session.flashbag().get('estado')%}
 
 
-                {% if message ==  "el Producto se ha creado correctamente"%}
+                {%if message == "el Nombre no puede ser igual al codigo" %}
+
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+
+                {%elseif message ==  "el producto se ha creado correctamente"%}
 
                     <div class="alert alert-primary" role="alert">
                         {{ message }}
                     </div>
-                 {%elseif message == "Error de Formulario" %}
-                     <div class="alert alert-primary" role="alert">
-                         {{ message }}
-                     </div>
-                {%endif%}
 
 
+                {% elseif message == "el producto se ha editado correctamente" %}
+
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                    </div>
 
 
+                    {% elseif message == "el codigo no puede contener espacios en blanco" %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
 
+
+                    {% elseif message == "has ingresado caracteres no validos" %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+
+{% endif %}
             {%endfor%}
         {%endif%}
         <div class="form-group col-md-6">
             {{form_start(form)}}
             <br/>
             {{form_end(form)}}
-
+            <p>
+                <a href="{{path("listaproducts")}}" class="btn btn-info">ir a la lista</a>
+            </p>
 
         </div>
 

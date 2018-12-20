@@ -16,7 +16,7 @@ class ProductController extends Controller {
     public function __construct() {
         $this->session = new Session();
     }
-
+     //addproduct
     public function addProductAction(Request $request) {
 
         $entry = new Product();
@@ -37,6 +37,8 @@ class ProductController extends Controller {
 
 
 
+
+
                 //for combo
                 $categori_repo = $em->getRepository("adminBundle:Category");
 
@@ -44,21 +46,41 @@ class ProductController extends Controller {
 
                 $entry->setCategory($category); //pasamos un objeto
 
-
-                $em->persist($entry);
-                $flush = $em->flush();//submit
+                    if($entry->getName() ==  $entry->getCode()) {
 
 
+                        $estate = "el Nombre no puede ser igual al codigo";
 
-                if ($flush == null) {
-                    $estado = "el Producto se ha creado correctamente";
-                } else {
-                    $estado = "error a la añadir el Producto";
-                }
+
+                    }else if (strpos($entry->getCode(), " ") ){
+
+
+                    $estate = "el codigo no puede contener espacios en blanco";
+
+
+
+                    //´|i|:|!|#|%|&|=|¡|¿|;|{|}|-|,|.|<|>|~|°
+                    }else if( preg_match("/(á|é|í|ó|ú|ñ+)/", $entry->getCode())) {
+
+                        $estate = "has ingresado caracteres no validos";
+                    }
+
+
+                    else{
+                        $em->persist($entry);
+                        $em->flush();//submit
+
+                        $estate = "el producto se ha creado correctamente";
+
+                    }
+
             } else {
-                $estado = "Error de Formulario";
+                $estate = "Error de Formulario";
             }
-            $this->session->getFlashBag()->add("estado", $estado); //para los mensajes de confirmacion
+
+
+
+            $this->session->getFlashBag()->add("estado", $estate); //para los mensajes de confirmacion
             //return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
         }
 
@@ -172,14 +194,14 @@ class ProductController extends Controller {
 
 
                 if ($flush == null) {
-                    $estado = "el Producto se ha editado correctamente";
+                    $estate = "el producto se ha editado correctamente";
                 } else {
-                    $estado = "error al editar  el Producto";
+                    $estate = "error al editar  el Producto";
                 }
             } else {
-                $estado = "Error de Formulario";
+                $estate = "Error de Formulario";
             }
-            $this->session->getFlashBag()->add("estado", $estado); //para los mensajes de confirmacion
+            $this->session->getFlashBag()->add("estado", $estate); //para los mensajes de confirmacion
             return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
         }
 

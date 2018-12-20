@@ -1,7 +1,26 @@
 adminBundle\Entity\Product:
   properties:
+    code:
+        - NotBlank: { message: "el codigo no puede estar vacio" }
+        - Length:
+            min: 4
+            max: 10
+            minMessage: "el codigo debe tener mínimo 4 caracteres."
+            maxMessage: "el codigo debe tener  máximo 10 caracteres"
+    description:
+        - NotBlank: {message: "la descripcion  no puede estar vacio"}
     name:
-           - NotBlank: { message: "el nombre no puede estar vacio"}
-           - length:
-                  min: 5
-                  minMessage: "el nombre tiene que tener mas de dos caracteres"
+    - Length:
+        min: 4
+        minMessage: "el nombre debe tener mínimo 4 caracteres."
+    price:
+    - Type:
+        type: numeric
+        message: "El precio debe ser un número válido."
+
+adminBundle\Entity\Category:
+  properties:
+    name:
+    - Length:
+        min: 2
+        minMessage: "el nombre debe tener mínimo 2 caracteres."

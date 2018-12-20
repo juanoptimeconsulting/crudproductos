@@ -5,11 +5,14 @@
 {% endblock %}
 
 {% block content %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.3.1.min.js"> </script>
 
     {% if app.session.flashbag().get('estado') is defined %}
 
 
         {% for message in app.session.flashbag().get('estado')%}
+
 
 
             {% if message ==  "el Producto se ha creado correctamente"%}
@@ -25,7 +28,10 @@
                     {{ message }}
                 </div>
 
-            {%endif%}
+
+
+
+    {%endif%}
 
 
 
@@ -72,11 +78,11 @@
                         <p> Categoria: {{productsllegada.category.name}}</p>
 
                         <p>
-                            <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+                            <a  id="delete-s" href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
                         </p>
 
                         <p>
-                            <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
+                            <a href="{{path("editproducts",{"id":productsllegada.id})}}"  class="btn btn-success">Editar</a>
                         </p>
 
 
@@ -123,5 +129,31 @@
 
         </ul>
     </nav>
+    <script>
+        $('#delete-s').click(function(){
 
+            swal({
+                title: "estas seguro?",
+                text: "Una vez eliminado no podra recuperar esta categoria!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        swal("Ah sido eliminado correctamente!", {
+                            icon: "success",
+
+                        });
+                    } else {
+
+                        swal("Gracias");
+                    }
+                });
+
+        });
+
+
+    </script>
 {%endblock%}

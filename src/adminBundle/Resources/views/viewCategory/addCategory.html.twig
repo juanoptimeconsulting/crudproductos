@@ -19,16 +19,41 @@
         {% for message in app.session.flashbag().get('estado')%}
 
 
-            {% if message ==  "la categoria se ha creado correctamente"%}
+
+            {%if message == "el Nombre no puede ser igual al codigo" %}
+
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+
+            {%elseif message ==  "se ha creado la categoria"%}
 
                 <div class="alert alert-primary" role="alert">
                     {{ message }}
                 </div>
 
 
-            {%endif%}
+            {% elseif message == "la categoria se ha editado correctamente" %}
 
-            {% if message ==  "formulario no valido" %}
+                <div class="alert alert-primary" role="alert">
+                    {{ message }}
+                </div>
+
+
+            {% elseif message == "el codigo no puede contener espacios en blanco" %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+
+
+            {% elseif message == "has ingresado caracteres no validos" %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+
+
+
+            {% elseif message ==  "formulario no valido" %}
 
                 <div class="alert alert-danger" role="alert">
                     {{ message }}

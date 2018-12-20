@@ -8,7 +8,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class ProductRepository extends \Doctrine\ORM\EntityRepository {
 
-//paginacin de productos
+//paginacion de productos
     public   function getPaginaterProducts($pagesizes = 5, $currentPage = 1){
 
         //CONSULTA CON DQL
