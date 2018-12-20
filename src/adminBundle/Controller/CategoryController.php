@@ -189,15 +189,23 @@ public function editestadoAction($id, $active)
 
         $entry_repo = $em->getRepository("adminBundle:Product");
 
-        $entry_repo->getCategoryProducts($category,5,$page);
+       $entries = $entry_repo->getCategoryProducts($category,5,$page);
 
-
+        //mostrar los links
+        $totalitems = count($entries);
+        $pagesCount  =  ceil($totalitems/5);
 
 
         return $this->render("adminBundle:viewCategory:categorypages.html.twig",array(
 
             "category" =>$category,
-            "categories" =>$category_repo->findAll()
+            "categories" =>$category_repo->findAll(),
+            "entries"=> $entries,
+            "totalitems"=> $totalitems,
+            "pagecount"=>$pagesCount,
+            "page" => $page,
+            "pagesumar" => $page
+
 
 
         ))
