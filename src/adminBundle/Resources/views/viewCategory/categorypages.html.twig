@@ -1,0 +1,66 @@
+{# listar todas las etiquetas desde el tag controller #}
+
+{% extends "adminBundle::inicio.html.twig"%}
+
+{% block menu %}
+    {% include "adminBundle:viewCategory:menucategory.html.twig"  with{'categories': categories} %}{#para listar las categorias en la barra superior #}
+{% endblock %}
+
+{% block content %}
+
+    {% for productsllegada in category.products %}
+
+
+        {% if productsllegada.category.active == 0 %}
+        <div class="col-lg-11" >
+
+            <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+
+            <p> Categoria:{{productsllegada.category.name}}</p>
+
+
+            <p>
+                <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+            </p>
+
+            <p>
+                <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
+            </p>
+
+
+            <div class="clearfix"></div>
+            <hr>
+
+        </div>
+<div class="clearfix"></div>
+
+
+{% else %}
+    <h2>Producto Desactivado</h2>
+    <div class="col-lg-11" >
+        <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+        <p> Categoria: {{productsllegada.category.name}}</p>
+
+        <p>
+            <a  id="delete-s" href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+        </p>
+
+        <p>
+            <a href="{{path("editproducts",{"id":productsllegada.id})}}"  class="btn btn-success">Editar</a>
+        </p>
+
+
+        <div class="clearfix"></div>
+        <hr>
+
+    </div>
+    <div class="clearfix"></div>
+
+            {% endif%}
+
+    {%endfor%}
+
+
+{% endblock content %}
+
+

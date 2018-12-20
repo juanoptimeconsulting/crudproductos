@@ -181,5 +181,30 @@ public function editestadoAction($id, $active)
         'category'=>$categories));
 
 }
+    public function categoryAction($id, $page){
+        $em = $this->getDoctrine()->getEntityManager();
+        $category_repo = $em->getRepository("adminBundle:Category");
+        $category = $category_repo->find($id);
+
+
+        $entry_repo = $em->getRepository("adminBundle:Product");
+
+        $entry_repo->getCategoryProducts($category,5,$page);
+
+
+
+
+        return $this->render("adminBundle:viewCategory:categorypages.html.twig",array(
+
+            "category" =>$category,
+            "categories" =>$category_repo->findAll()
+
+
+        ))
+            ;
+    }
+
+
+
 
 }

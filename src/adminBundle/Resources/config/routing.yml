@@ -42,4 +42,6 @@ editproducts:
     path: product/edit/{id}
     defaults: { _controller: adminBundle:Product:editProduct}
 
-
+redireccionpages:
+    path: /category/{id}/{page}
+    defaults: { _controller: adminBundle:Category:category, page: 1 }
