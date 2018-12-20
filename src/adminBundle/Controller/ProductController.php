@@ -8,6 +8,7 @@ use adminBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\Session\Session;
 use adminBundle\Form\ProductType;
 
+
 class ProductController extends Controller {
     //message flash
     private $session;
@@ -58,7 +59,7 @@ class ProductController extends Controller {
                 $estado = "Error de Formulario";
             }
             $this->session->getFlashBag()->add("estado", $estado); //para los mensajes de confirmacion
-            return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
+            //return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
         }
 
 

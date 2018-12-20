@@ -3,12 +3,11 @@
 namespace adminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -29,7 +28,7 @@ class ProductType extends AbstractType
                 "class" => "form-name form-control")))
             ->add('brand',TextType::class, array("label" => "Marca", "required" => "required", "attr" => array(
                 "class" => "form-name form-control")))
-            ->add('price',TextType::class, array("label" => "Precio", "required" => "required", "attr" => array(
+            ->add('price',NumberType ::class, array("label" => "Precio", "required" => "required", "attr" => array(
                 "class" => "form-name form-control")))
             ->add('category', EntityType::class, array(
                 "class" => "adminBundle:Category",
