@@ -1,5 +1,8 @@
 {# empty Twig template #}
 {#para listar las categorias en la barra superior #}
 {% for  category in categories %}
-    <li><a href="{{path("redireccionpages",{"id":category.id})}}">{{category.name}}</a></li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{path("redireccionpages",{"id":category.id})}}">{{category.name}}</a>
+    </li>
 {%endfor%}

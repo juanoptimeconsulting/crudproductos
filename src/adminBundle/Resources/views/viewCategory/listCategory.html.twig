@@ -100,33 +100,7 @@
             {%endfor%}
         {%endif%}
     </div>
-    <script>
-        $('#button-b').click(function(){
 
-            swal({
-                title: "estas seguro?",
-                text: "Una vez eliminado no podra recuperar esta categoria!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-
-                        swal("Ah sido eliminado correctamente!", {
-                            icon: "success",
-
-                        });
-                    } else {
-
-                        swal("Gracias");
-                    }
-                });
-
-        });
-
-
-    </script>
     <div class="clearfix"></div>
 {% endblock content %}
 

@@ -2,7 +2,6 @@
 {% block content %}
 
     <h2>REGISTRO DE PRODUCTOS</h2>
-    <div class="form-row">
 
 
         {% if app.session.flashbag().get('estado') is defined %}
@@ -21,6 +20,7 @@
 
                     <div class="alert alert-primary" role="alert">
                         {{ message }}
+                        <a class="btn btn-primary" href="{{ path ("listaproducts")}}" role="button">ir a lista</a>
                     </div>
 
 
@@ -47,13 +47,17 @@
         {%endif%}
         <div class="form-group col-md-6">
             {{form_start(form)}}
+
             <br/>
+
+            {{form_widget(form.guardar)}}
+
+
+
             {{form_end(form)}}
-            <p>
-                <a href="{{path("listaproducts")}}" class="btn btn-info">ir a la lista</a>
-            </p>
+
 
         </div>
 
-    </div>
+
 {% endblock%}

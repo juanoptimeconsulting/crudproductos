@@ -48,7 +48,6 @@
 
 
 
-
             {% if productsllegada.category.active == 0 %}
                 <h2>Producto Activado</h2>
                 <div class="col-lg-11" >
@@ -73,7 +72,8 @@
 
                 {% else %}
                     <h2>Producto Desactivado</h2>
-                    <div class="col-lg-11" >
+                    <div class="row" >
+                        <div class="col">
                         <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
                         <p> Categoria: {{productsllegada.category.name}}</p>
 
@@ -88,7 +88,7 @@
 
                         <div class="clearfix"></div>
                         <hr>
-
+                        </div>
                     </div>
                     <div class="clearfix"></div>
 
@@ -121,7 +121,8 @@
 
             {% else %}
 
-                {% set pagesumar  = page+1 %}
+                {% set pagesumar  = page+2 %}
+
             {% endif %}
             <li class="page-item"><a class="page-link" href="{{  path('listaproducts', {'page': pagesumar }) }}">&raquo;</a></li>
 
@@ -134,7 +135,7 @@
 
             swal({
                 title: "estas seguro?",
-                text: "Una vez eliminado no podra recuperar esta categoria!",
+                text: "Una vez eliminado no podra recuperar este producto!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
