@@ -78,7 +78,8 @@
                         <p> Categoria: {{productsllegada.category.name}}</p>
 
                         <p>
-                            <a  id="delete-s" href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
+                            <a href="{{ path('deleteproducts' , {"id":productsllegada.id}) }}" class="btn btn-danger" onclick="return confirm('Estas seguro de que quieres eliminar?')">delete</a>
+                           <!-- <a  id="delete-s" href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>-->
                         </p>
 
                         <p>
@@ -146,7 +147,7 @@
 
                         swal("Ah sido eliminado correctamente!", {
                             icon: "success",
-                            
+
 
                         });
                     } else {
