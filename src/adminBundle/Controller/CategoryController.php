@@ -60,9 +60,11 @@ class CategoryController extends Controller {
                     $estate = "se ha creado la categoria";
                 }
 
-            } else {
-                $estate = "el nombre debe tener mínimo 2 caracteres";
+            }else
+            {
+                $estate = "error";
             }
+
             $this->session->getFlashBag()->add("estado", $estate);//flash of message
             //return $this->redirectToRoute("listcategory"); //redirect the list
         }

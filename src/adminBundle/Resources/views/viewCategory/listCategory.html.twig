@@ -60,7 +60,12 @@
 
 
 
-                        <td><a id="button-b" class="btn btn-warning" href="#" >Categoria en uso</a></td>
+                        <td><a id="action-b" class="btn btn-warning" href="#" >Categoria en uso</a></td>
+
+
+                        {% elseif categories.products|length == 0 %}
+
+                            <td><a id="action-a" class="btn btn-primary" href="#" >Categoria libre </a></td>
 
                     {% endif %}
 
@@ -104,6 +109,24 @@
     </div>
 
     <div class="clearfix"></div>
+
+
+<script language="JavaScript">
+    $('#action-b').click(function() {
+        swal({
+            title: "Información!",
+            text: "Esta categoria esta siendo utlizada por un producto.",
+            imageUrl: 'thumbs-up.jpg'
+        });
+    });
+
+    $('#action-a').click(function() {
+        swal({
+            title: "Información!",
+            text: "Esta categoria esta no esta siendo utlizada por un producto.",
+            imageUrl: 'thumbs-up.jpg'
+        });
+    });
+</script>
+
 {% endblock content %}
-
-

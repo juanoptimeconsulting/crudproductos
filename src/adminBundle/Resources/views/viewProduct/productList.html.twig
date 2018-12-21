@@ -79,7 +79,7 @@
 
                         <p>
                             <a href="{{ path('deleteproducts' , {"id":productsllegada.id}) }}" class="btn btn-danger" onclick="return confirm('Estas seguro de que quieres eliminar?')">delete</a>
-                           <!-- <a  id="delete-s" href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>-->
+                           <!-- <a  id="delete-s" href="{#{{path("deleteproducts",{"id":productsllegada.id})}}#}" class="btn btn-danger">Eliminar</a>-->
                         </p>
 
                         <p>
@@ -122,7 +122,7 @@
 
             {% else %}
 
-                {% set pagesumar  = page+2 %}
+                {% set pagesumar  = page+1 %}
 
             {% endif %}
             <li class="page-item"><a class="page-link" href="{{  path('listaproducts', {'page': pagesumar }) }}">&raquo;</a></li>

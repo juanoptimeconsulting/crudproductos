@@ -19,8 +19,8 @@ class ProductController extends Controller {
      //addproduct
     public function addProductAction(Request $request) {
 
-        $entry = new Product();
-        $form = $this->createForm(ProductType::class, $entry); //llamar a la vista
+        $porduct = new Product();
+        $form = $this->createForm(ProductType::class, $porduct); //llamar a la vista
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
@@ -28,12 +28,12 @@ class ProductController extends Controller {
             if ($form->isValid()) {//Aqui se lleva la validacion desde validation.yml,
                 $em = $this->getDoctrine()->getEntityManager();
 
-                $entry = new Product();
-                $entry->setCode($form->get("code")->getData()); //seteo de los datos de FRM
-                $entry->setName($form->get("name")->getData());
-                $entry->setDescription($form->get("description")->getData());
-                $entry->setBrand($form->get("brand")->getData());
-                $entry->setPrice($form->get("price")->getData());
+                $porduct = new Product();
+                $porduct->setCode($form->get("code")->getData()); //seteo de los datos de FRM
+                $porduct->setName($form->get("name")->getData());
+                $porduct->setDescription($form->get("description")->getData());
+                $porduct->setBrand($form->get("brand")->getData());
+                $porduct->setPrice($form->get("price")->getData());
 
 
 
@@ -44,15 +44,15 @@ class ProductController extends Controller {
 
                 $category = $categori_repo->find($form->get("category")->getData());
 
-                $entry->setCategory($category); //pasamos un objeto
+                $porduct->setCategory($category); //pasamos un objeto
 
-                    if($entry->getName() ==  $entry->getCode()) {
+                    if($porduct->getName() ==  $porduct->getCode()) {
 
 
                         $estate = "el Nombre no puede ser igual al codigo";
 
 
-                    }else if (strpos($entry->getCode(), " ") ){
+                    }else if (strpos($porduct->getCode(), " ") ){
 
 
                     $estate = "el codigo no puede contener espacios en blanco";
@@ -60,14 +60,14 @@ class ProductController extends Controller {
 
 
                     //´|i|:|!|#|%|&|=|¡|¿|;|{|}|-|,|.|<|>|~|°
-                    }else if( preg_match("/(á|é|í|ó|ú|ñ+)/", $entry->getCode())) {
+                    }else if( preg_match("/(á|é|í|ó|ú|ñ+)/", $porduct->getCode())) {
 
                         $estate = "has ingresado caracteres no validos";
                     }
 
 
                     else{
-                        $em->persist($entry);
+                        $em->persist($porduct);
                         $em->flush();//submit
 
                         $estate = "el producto se ha creado correctamente";
