@@ -139,12 +139,14 @@
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
+                timer: 5000
             })
                 .then((willDelete) => {
                     if (willDelete) {
 
                         swal("Ah sido eliminado correctamente!", {
                             icon: "success",
+                            
 
                         });
                     } else {
