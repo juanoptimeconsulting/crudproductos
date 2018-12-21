@@ -20,6 +20,8 @@
 
                     <div class="alert alert-primary" role="alert">
                         {{ message }}
+                        &nbsp;
+
                         <a class="btn btn-primary" href="{{ path ("listaproducts")}}" role="button">ir a lista</a>
                     </div>
 
@@ -48,9 +50,7 @@
         <div class="form-group col-md-6">
             {{form_start(form)}}
 
-            <br/>
 
-            {{form_widget(form.guardar)}}
 
 
 

@@ -1,5 +1,5 @@
 admin_homepage:
-    path:     /listar
+    path:     /inicio
     defaults: { _controller: adminBundle:Default:inicio}
 
 addcategory:

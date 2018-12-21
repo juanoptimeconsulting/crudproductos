@@ -39,7 +39,7 @@ class CategoryController extends Controller {
                 if($category->getName() ==  $category->getCode()) {
 
 
-                    $estate = "el Nombre no puede ser igual al codigo";
+                    $estate = "el nombre no puede ser igual al codigo";
 
 
                 }else if (strpos($category->getCode(), " ") ){

@@ -6,7 +6,7 @@
     <script src = "https://code.jquery.com/jquery-3.3.1.min.js"> </script>
 
     <h1>Lista de Categorias</h1>
-    <div class="col-lg-6">
+    <div class="col-lg-12">
 
 
 
@@ -16,18 +16,20 @@
         </div>
 
 
-        <table class="table">
+        <table class="table table-bordered">
 
 
 
 
             <tbody>
             <tr>
-                <th scope="row">1</th>
+
                 <td>Codigo</td>
                 <td>Nombre</td>
                 <td>Descripcion</td>
                 <td>Estado</td>
+                <td>Edicion</td>
+                <td>En uso</td>
 
 
 
@@ -35,7 +37,7 @@
             </tr>
             {% for categories in category %}{#variable  category enviada desde el controlador#}
                 <tr>
-                    <th scope="row">3</th>
+
                     <td>{{ categories.code}}</td>
                     <td>{{ categories.name}}</td>
                     <td>{{ categories.description}}</td>

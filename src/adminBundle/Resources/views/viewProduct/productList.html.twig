@@ -50,7 +50,7 @@
 
             {% if productsllegada.category.active == 0 %}
                 <h2>Producto Activado</h2>
-                <div class="col-lg-11" >
+                <div class="col-lg-6" >
                 <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
                 <p> Categoria: {{productsllegada.category.name}}</p>
 
@@ -72,8 +72,8 @@
 
                 {% else %}
                     <h2>Producto Desactivado</h2>
-                    <div class="row" >
-                        <div class="col">
+                    <div class="col-lg-6" >
+
                         <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
                         <p> Categoria: {{productsllegada.category.name}}</p>
 
@@ -88,7 +88,7 @@
 
                         <div class="clearfix"></div>
                         <hr>
-                        </div>
+
                     </div>
                     <div class="clearfix"></div>
 

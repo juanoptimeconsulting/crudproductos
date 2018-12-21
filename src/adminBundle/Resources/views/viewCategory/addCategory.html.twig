@@ -20,7 +20,7 @@
 
 
 
-            {%if message == "el Nombre no puede ser igual al codigo" %}
+            {%if message == "el nombre no puede ser igual al codigo" %}
 
                 <div class="alert alert-danger" role="alert">
                     {{ message }}
@@ -30,7 +30,9 @@
 
                 <div class="alert alert-primary" role="alert">
                     {{ message }}
-                    <a class="btn btn-primary" href="{{ path ("listcategory")}}" role="button">ir a lista</a>
+                       &nbsp;
+
+                    <a  class="btn btn-primary" href="{{ path ("listcategory")}}" role="button">ir a lista</a>
                 </div>
 
 
@@ -72,7 +74,7 @@
 
 
 
-        {{ form_widget(form.guardar) }}
+
 
         {{form_end(form)}}
 
