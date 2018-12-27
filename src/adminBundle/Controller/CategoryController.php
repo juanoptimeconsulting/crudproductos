@@ -10,7 +10,7 @@ use adminBundle\Form\CategoryType;
 
 class CategoryController extends Controller {
 
-    //message flash
+    //message flashs
     private $session;
 
     public function __construct() {
