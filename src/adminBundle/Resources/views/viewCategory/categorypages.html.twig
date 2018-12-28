@@ -7,58 +7,51 @@
 {% endblock %}
 
 {% block content %}
-
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            lista de productos</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Categoria</th>
+                        <th>Eliminar</th>
+                        <th>Edición</th>
+                    </tr>
+                    </thead>
+                    <tbody>
     {% for productsllegada in category.products %}
 
 
         {% if productsllegada.category.active == 0 %}
-        <div class="col-lg-11" >
 
-            <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
+            <tr>
+            <td>{{productsllegada.name}}</td>
+            <td>{{productsllegada.category.name}}</td>
+            <td>    <a href="{{ path('deleteproducts' , {"id":productsllegada.id}) }}" class="btn btn-danger" onclick="return confirm('Estas seguro de que quieres eliminar?')">Eliminar</a></td>
+            <td> <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a></td>
 
-            <p> Categoria:{{productsllegada.category.name}}</p>
-
-
-            <p>
-                <a href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
-            </p>
-
-            <p>
-                <a href="{{path("editproducts",{"id":productsllegada.id})}}" class="btn btn-success">Editar</a>
-            </p>
 
 
             <div class="clearfix"></div>
-            <hr>
-
-        </div>
-<div class="clearfix"></div>
 
 
-{% else %}
-    <h2>Producto Desactivado</h2>
-    <div class="col-lg-11" >
-        <p><strong> Producto : {{productsllegada.name}} </strong>  </p>
-        <p> Categoria: {{productsllegada.category.name}}</p>
-
-        <p>
-            <a  id="delete-s" href="{{path("deleteproducts",{"id":productsllegada.id})}}" class="btn btn-danger">Eliminar</a>
-        </p>
-
-        <p>
-            <a href="{{path("editproducts",{"id":productsllegada.id})}}"  class="btn btn-success">Editar</a>
-        </p>
-
-
-        <div class="clearfix"></div>
-        <hr>
-
-    </div>
-    <div class="clearfix"></div>
 
             {% endif%}
 
     {%endfor%}
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
+
     <nav aria-label="Page navigation example">
         <ul class="pagination">
 
