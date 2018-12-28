@@ -22,7 +22,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('code', TextType::class, array("label" => "Codigo", "required" => "required", "attr" => array(
-                "class" => "form-name form-control","data-minlength"=>"6")))
+                "class" => "form-name form-control","data-minlength"=>"6","id"=>"code")))
             ->add('name', TextType::class, array("label" => "Nombre", "required" => "required", "attr" => array(
                 "class" => "form-name form-control")))
             ->add('description', TextareaType::class, array("label" => "Descripcion", "required" => "required", "attr" => array(
@@ -38,7 +38,7 @@ class ProductType extends AbstractType
                     "class" => "form-name form-control")))
 
             ->add('guardar', SubmitType::class, array(
-                'attr' => array('class' => 'form-submit btn btn-primary ')))
+                'attr' => array('class' => 'form-submit btn btn-primary ',"id"=>"ingreso")))
         ;
     }
     

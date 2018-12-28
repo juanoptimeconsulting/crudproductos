@@ -25,6 +25,9 @@ class ProductController extends Controller {
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
 
+
+
+
             if ($form->isValid()) {//Aqui se lleva la validacion desde validation.yml,
                 $em = $this->getDoctrine()->getEntityManager();
 
@@ -71,17 +74,19 @@ class ProductController extends Controller {
                         $em->flush();//submit
 
                         $estate = "el producto se ha creado correctamente";
-
+                        $this->redirectToRoute("addproduct");
                     }
 
             } else {
+
+
                 $estate = "Error de Formulario";
             }
 
 
 
             $this->session->getFlashBag()->add("estado", $estate); //para los mensajes de confirmacion
-            return $this->redirectToRoute("addproduct"); //redirigirnos a las lita
+            //return $this->redirectToRoute("addproduct"); //redirigirnos a las lita
         }
 
 
@@ -89,7 +94,10 @@ class ProductController extends Controller {
 
         return $this->render("@admin/viewProduct/addProduct.html.twig", array(
             'form' => $form->createView()
+
+
         ));
+
     }
 
     //listar Productos
