@@ -1,10 +1,16 @@
 {% extends "adminBundle::inicio.html.twig"%}
 {% block content %}
+    <!DOCTYPE html>
 
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>edicion de productos</title>
+
+    </head>
+<body>
 
     {#llegada del controlador #}
-    <h2>EDICION DE PRODUCTOS: {{ product.name  }}</h2>
-    <div class="form-row">
 
 
         {% if app.session.flashbag().get('estado') is defined %}
@@ -29,14 +35,40 @@
 
             {%endfor%}
         {%endif%}
-        <div class="form-group col-md-6">
+    {#llamada del formulario #}
 
-            {{form_start(form)}}
-           <br/>
-            {{form_end(form)}}
+    <div class="container">
+        <div class="card card-register mx-auto mt-5">
+            <div class="card-header">edición del producto:  {{ product.name  }}</div>
+            <div class="card-body">
 
+                <div class="form-group">
+                    <div class="form-row-6">
+
+                        {{form_start(form)}}
+
+
+
+
+
+                        {{form_end(form)}}
+
+
+                    </div>
+                </div>
+            </div>
 
         </div>
-
     </div>
+
+    <div class="text-center">
+        <a class="d-block small mt-3" href="{{ path ("listcategory") }}">Lista</a>
+        <a class="d-block small" href="#">inicio</a>
+    </div>
+
+    <div class="clearfix"></div>
+
+</body>
+
+</html>
 {% endblock%}

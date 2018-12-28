@@ -9,9 +9,9 @@
         <meta charset="utf-8">
         <title>creacion de categorias</title>
 
-    </head>
+        </head>
     <body>
-    <h1>Creación de categorias</h1>
+
     {{ form_errors(form)}}
     {% if app.session.flashbag().get('estado') is defined %}{#verfica si esta definida la varibal estado si se envia algo desde el control#}
 
@@ -65,17 +65,39 @@
     {%endif%}
 
     {#llamada del formulario #}
-    <div class="col-lg-6">
-        {{form_start(form)}}
+
+    <div class="container">
+            <div class="card card-register mx-auto mt-5">
+                <div class="card-header">Registro de categorias</div>
+                <div class="card-body">
+
+                        <div class="form-group">
+                            <div class="form-row-6">
+
+                                {{form_start(form)}}
 
 
 
 
 
-        {{form_end(form)}}
+                                {{form_end(form)}}
 
+
+                            </div>
+                        </div>
+                </div>
+
+        </div>
     </div>
+
+    <div class="text-center">
+        <a class="d-block small mt-3" href="{{ path ("listcategory") }}">Lista</a>
+        <a class="d-block small" href=#">inicio</a>
+    </div>
+
     <div class="clearfix"></div>
+
     </body>
+
     </html>
 {%endblock%}

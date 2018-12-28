@@ -1,7 +1,15 @@
 {% extends "adminBundle::inicio.html.twig"%}
 {% block content %}
+    <!DOCTYPE html>
 
-    <h2>REGISTRO DE PRODUCTOS</h2>
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>creacion de productos</title>
+
+    </head>
+<body>
+
 
 
         {% if app.session.flashbag().get('estado') is defined %}
@@ -47,17 +55,41 @@
              {% endif %}
             {%endfor%}
         {%endif%}
-        <div class="form-group col-md-6">
-            {{form_start(form)}}
+        {#llamada del formulario #}
+
+        <div class="container">
+            <div class="card card-register mx-auto mt-5">
+                <div class="card-header">Registro de productos</div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <div class="form-row-6">
+
+                            {{form_start(form)}}
 
 
 
 
 
-            {{form_end(form)}}
+                            {{form_end(form)}}
 
 
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
+        <div class="text-center">
+            <a class="d-block small mt-3" href="{{ path ("listcategory") }}">Lista</a>
+            <a class="d-block small" href=#">inicio</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+</body>
+
+</html>
 
 {% endblock%}
