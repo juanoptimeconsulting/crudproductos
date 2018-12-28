@@ -66,7 +66,7 @@ class CategoryController extends Controller {
             }
 
             $this->session->getFlashBag()->add("estado", $estate);//flash of message
-            //return $this->redirectToRoute("listcategory"); //redirect the list
+            return $this->redirectToRoute("addcategory"); //redirect the list
         }
 
 

@@ -19,8 +19,8 @@ class ProductController extends Controller {
      //addproduct
     public function addProductAction(Request $request) {
 
-        $porduct = new Product();
-        $form = $this->createForm(ProductType::class, $porduct); //llamar a la vista
+        $Product = new Product();
+        $form = $this->createForm(ProductType::class, $Product); //llamar a la vista
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
@@ -28,12 +28,12 @@ class ProductController extends Controller {
             if ($form->isValid()) {//Aqui se lleva la validacion desde validation.yml,
                 $em = $this->getDoctrine()->getEntityManager();
 
-                $porduct = new Product();
-                $porduct->setCode($form->get("code")->getData()); //seteo de los datos de FRM
-                $porduct->setName($form->get("name")->getData());
-                $porduct->setDescription($form->get("description")->getData());
-                $porduct->setBrand($form->get("brand")->getData());
-                $porduct->setPrice($form->get("price")->getData());
+                $Product = new Product();
+                $Product->setCode($form->get("code")->getData()); //seteo de los datos de FRM
+                $Product->setName($form->get("name")->getData());
+                $Product->setDescription($form->get("description")->getData());
+                $Product->setBrand($form->get("brand")->getData());
+                $Product->setPrice($form->get("price")->getData());
 
 
 
@@ -44,15 +44,15 @@ class ProductController extends Controller {
 
                 $category = $categori_repo->find($form->get("category")->getData());
 
-                $porduct->setCategory($category); //pasamos un objeto
+                $Product->setCategory($category); //pasamos un objeto
 
-                    if($porduct->getName() ==  $porduct->getCode()) {
+                    if($Product->getName() ==  $Product->getCode()) {
 
 
                         $estate = "el Nombre no puede ser igual al codigo";
 
 
-                    }else if (strpos($porduct->getCode(), " ") ){
+                    }else if (strpos($Product->getCode(), " ") ){
 
 
                     $estate = "el codigo no puede contener espacios en blanco";
@@ -60,14 +60,14 @@ class ProductController extends Controller {
 
 
                     //´|i|:|!|#|%|&|=|¡|¿|;|{|}|-|,|.|<|>|~|°
-                    }else if( preg_match("/(á|é|í|ó|ú|ñ+)/", $porduct->getCode())) {
+                    }else if( preg_match("/(á|é|í|ó|ú|ñ+)/", $Product->getCode())) {
 
                         $estate = "has ingresado caracteres no validos";
                     }
 
 
                     else{
-                        $em->persist($porduct);
+                        $em->persist($Product);
                         $em->flush();//submit
 
                         $estate = "el producto se ha creado correctamente";
@@ -81,7 +81,7 @@ class ProductController extends Controller {
 
 
             $this->session->getFlashBag()->add("estado", $estate); //para los mensajes de confirmacion
-            //return $this->redirectToRoute("listaproducts"); //redirigirnos a las lita
+            return $this->redirectToRoute("addproduct"); //redirigirnos a las lita
         }
 
 
